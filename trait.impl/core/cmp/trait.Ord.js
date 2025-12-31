@@ -1,0 +1,9 @@
+(function() {
+    var implementors = Object.fromEntries([["niri_ipc",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.92.0/core/cmp/trait.Ord.html\" title=\"trait core::cmp::Ord\">Ord</a> for <a class=\"enum\" href=\"niri_ipc/enum.Layer.html\" title=\"enum niri_ipc::Layer\">Layer</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.92.0/core/cmp/trait.Ord.html\" title=\"trait core::cmp::Ord\">Ord</a> for <a class=\"enum\" href=\"niri_ipc/enum.StackingOrderGroup.html\" title=\"enum niri_ipc::StackingOrderGroup\">StackingOrderGroup</a>"],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.92.0/core/cmp/trait.Ord.html\" title=\"trait core::cmp::Ord\">Ord</a> for <a class=\"struct\" href=\"niri_ipc/struct.StackingOrder.html\" title=\"struct niri_ipc::StackingOrder\">StackingOrder</a>"]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":57,"fragment_lengths":[773]}
