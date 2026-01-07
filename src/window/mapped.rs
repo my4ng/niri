@@ -2,6 +2,7 @@ use std::cell::{Cell, Ref, RefCell};
 use std::time::Duration;
 
 use niri_config::{Color, CornerRadius, GradientInterpolation, WindowRule};
+use nix::sys::signal;
 use smithay::backend::renderer::element::surface::WaylandSurfaceRenderElement;
 use smithay::backend::renderer::element::Kind;
 use smithay::backend::renderer::gles::GlesRenderer;
@@ -582,6 +583,14 @@ impl Mapped {
 
     pub fn is_urgent(&self) -> bool {
         self.is_urgent
+    }
+
+    pub fn kill(&self) {
+        if let Some(pid) = self.credentials().map(|c| c.pid) {
+            if let Err(errno) = signal::kill(nix::unistd::Pid::from_raw(pid), signal::SIGKILL) {
+                warn!("failed to kill proccess ID {pid}: {errno}");
+            }
+        }
     }
 }
 

@@ -283,6 +283,15 @@ pub enum Action {
         #[cfg_attr(feature = "clap", arg(long))]
         id: Option<u64>,
     },
+    /// Kill a window.
+    #[cfg_attr(feature = "clap", clap(about = "Kill the focused window"))]
+    KillWindow {
+        /// Id of the window to close.
+        ///
+        /// If `None`, uses the focused window.
+        #[cfg_attr(feature = "clap", arg(long))]
+        id: Option<u64>,
+    },
     /// Toggle fullscreen on a window.
     #[cfg_attr(
         feature = "clap",

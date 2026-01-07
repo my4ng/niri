@@ -2203,6 +2203,7 @@ dependencies = [
  "log",
  "niri-config",
  "niri-ipc",
+ "nix",
  "ordered-float",
  "pango",
  "pangocairo",

@@ -805,6 +805,20 @@ impl State {
                     mapped.toplevel().send_close();
                 }
             }
+            Action::KillWindow => {
+                if let Some(mapped) = self.niri.layout.focus() {
+                    mapped.kill();
+                }
+                self.niri.queue_redraw_all();
+            }
+            Action::KillWindowById(id) => {
+                if let Some((_, mapped)) =
+                    self.niri.layout.windows().find(|(_, m)| m.id().get() == id)
+                {
+                    mapped.kill();
+                }
+                self.niri.queue_redraw_all();
+            }
             Action::FullscreenWindow => {
                 let focus = self.niri.layout.focus().map(|m| m.window.clone());
                 if let Some(window) = focus {
